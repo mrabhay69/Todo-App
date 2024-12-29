@@ -1,0 +1,10 @@
+<div class="container">
+  <h1 class="text-center mb-3">Todo List by Abhay</h1><app-add-test (todoAdd)="addTodo($event)"></app-add-test>
+<h4>Your Todos</h4>
+<div *ngIf="this.todos.length == 0; else elseBlock">No todos to display.</div>
+<ng-template #elseBlock>
+<div *ngFor="let todo of todos; index as i">
+  <app-test-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (todoCheckbox)="toggleTodo($event)"></app-test-item>
+</div>
+</ng-template>
+</div>
